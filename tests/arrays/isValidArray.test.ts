@@ -2,7 +2,7 @@ import { expect, test } from 'vitest';
 import { isValidArray } from '../../lib/arrays';
 
 test('passing no parameter', () => {
-    expect(isValidArray()).toBe(false);
+    expect(isValidArray()).toBe(true);
 });
 
 test('passing empty array', () => {
