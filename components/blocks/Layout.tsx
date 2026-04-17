@@ -32,6 +32,8 @@ const Header = forwardRef<
     );
 
     useEffect(() => {
+        if (!height) return;
+
         const root = document.documentElement;
         root.style.setProperty('--header-height', `${height}px`);
     }, [height]);
@@ -75,6 +77,8 @@ const Footer = forwardRef<
     );
 
     useEffect(() => {
+        if (!height) return;
+
         const root = document.documentElement;
         root.style.setProperty('--footer-height', `${height}px`);
     }, [height]);
