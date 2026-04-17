@@ -18,7 +18,7 @@ export const Default: Story = {
     args: {
         children: (
             <>
-                <Layout.Header className="bg-white text-black">
+                <Layout.Header className="bg-gray-400 text-black">
                     Header
                 </Layout.Header>
                 <Layout.Main className="bg-red-500 h-125">Main</Layout.Main>

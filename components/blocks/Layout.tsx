@@ -1,5 +1,5 @@
-import { FC, forwardRef, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { FC, forwardRef, ReactNode } from 'react';
 
 const Layout: FC<{ children?: ReactNode }> = ({ children }) => {
     return children;
@@ -44,4 +44,4 @@ const Footer = forwardRef<
 
 Footer.displayName = 'Footer';
 
-export { Layout as View, Main, Header, Footer };
+export { Footer, Header, Main, Layout as View };
