@@ -4,7 +4,7 @@ import Navigation from '@/components/blocks/Navigation';
 export default function Home() {
     return (
         <Layout.View>
-            <Layout.Header className="bg-gray-400 text-black h-270">
+            <Layout.Header className="bg-gray-400 text-black h-200">
                 <Navigation
                     title="© Lukas Wochner"
                     items={[
