@@ -7,8 +7,13 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint",
+        "tc": "tsc --noEmit",
+        "test": "vitest",
+        "test-storybook": "vitest --project=storybook",
+        "test-unit": "vitest --project=unit",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "prepare": "husky"
     },
     "repository": {
         "type": "git",
@@ -38,6 +43,7 @@
         "eslint": "^9",
         "eslint-config-next": "16.2.1",
         "eslint-plugin-storybook": "^10.3.3",
+        "husky": "^9.1.7",
         "playwright": "^1.58.2",
         "storybook": "^10.3.3",
         "tailwindcss": "^4",
