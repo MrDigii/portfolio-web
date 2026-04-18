@@ -54,14 +54,22 @@ const Header = forwardRef<
             headerRef.current.offsetHeight;
 
         const root = document.documentElement;
-        root.style.setProperty('--header-gradient-x', `${xPercent}%`);
-        root.style.setProperty('--header-gradient-y', `${yPercent}%`);
+
+        if (xPercent <= 100) {
+            root.style.setProperty('--header-gradient-x', `${xPercent}%`);
+        }
+
+        if (yPercent <= 100) {
+            root.style.setProperty('--header-gradient-y', `${yPercent}%`);
+        }
     }, [mouseX, mouseY]);
 
     return (
         <header ref={headerRef} className={cn('layout__header', className)}>
             <div className="layout__header__bg" />
-            <div>{children}</div>
+            <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+                {children}
+            </div>
         </header>
     );
 });
