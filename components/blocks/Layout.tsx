@@ -1,5 +1,6 @@
 'use client';
 
+import { useMousePosition } from '@/lib/useMousePosition';
 import { useResize } from '@/lib/useResize';
 import { cn } from '@/lib/utils';
 import {
@@ -25,6 +26,10 @@ const Header = forwardRef<
         axis: 'height',
         delay: 100,
     });
+    const { x: mouseX, y: mouseY } = useMousePosition({
+        axis: 'both',
+        delay: 5,
+    });
 
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(
         ref,
@@ -38,9 +43,25 @@ const Header = forwardRef<
         root.style.setProperty('--header-height', `${height}px`);
     }, [height]);
 
+    useEffect(() => {
+        if (!headerRef.current || mouseX === null || mouseY === null) return;
+
+        const xPercent =
+            ((mouseX - headerRef.current.offsetLeft) * 100) /
+            headerRef.current.offsetWidth;
+        const yPercent =
+            ((mouseY - headerRef.current.offsetTop) * 100) /
+            headerRef.current.offsetHeight;
+
+        const root = document.documentElement;
+        root.style.setProperty('--header-gradient-x', `${xPercent}%`);
+        root.style.setProperty('--header-gradient-y', `${yPercent}%`);
+    }, [mouseX, mouseY]);
+
     return (
         <header ref={headerRef} className={cn('layout__header', className)}>
-            {children}
+            <div className="layout__header__bg" />
+            <div>{children}</div>
         </header>
     );
 });
