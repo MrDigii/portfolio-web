@@ -28,6 +28,12 @@ const Navigation: FC<{
                         <li key={i}>
                             <Link
                                 href={item.href}
+                                target={item.isExternal ? '_blank' : undefined}
+                                rel={
+                                    item.isExternal
+                                        ? 'noopener noreferrer'
+                                        : undefined
+                                }
                                 className={cn(
                                     'font-normal text-base uppercase py-1 border-b border-b-transparent outline-none transition-colors',
                                     'hover:border-b-secondary focus-visible:border-b-secondary'
