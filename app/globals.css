@@ -7,7 +7,7 @@
     --secondary: #8a8bc9;
 
     --header-height: 800px;
-    --footer-height: 300px;
+    --footer-height: 492px;
 }
 
 @theme inline {
@@ -57,7 +57,7 @@ body {
         position: absolute;
         inset: 0;
         background: #080037;
-        background-image: url('/images/gutter-bg.png');
+        background-image: url('/images/bg-gutter.svg');
         background-repeat: repeat;
     }
 
@@ -73,8 +73,55 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition: --header-gradient-x 0.2s linear,
-            --header-gradient-y 0.2s linear;
+        transition:
+            --header-gradient-x 0.4s linear,
+            --header-gradient-y 0.4s linear;
+    }
+}
+
+@property --footer-gradient-x {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --footer-gradient-y {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@utility layout__footer__bg {
+    position: absolute;
+    display: block;
+    inset: 0;
+    z-index: -1;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background-image: url('/images/bg-gutter.svg');
+        background-repeat: repeat;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background: radial-gradient(
+            circle at var(--footer-gradient-x) var(--footer-gradient-y),
+            rgba(35, 0, 222, 0.4) 0%,
+            rgba(10, 0, 64, 0.4) 100%
+        );
+
+        transition:
+            --footer-gradient-x 0.4s linear,
+            --footer-gradient-y 0.4s linear;
     }
 }
 
@@ -92,4 +139,25 @@ body {
     left: 0;
     z-index: 10;
     width: 100%;
+}
+
+@utility text-gradient {
+    background: linear-gradient(30deg, #fb04ff 0%, #ff6d70 50%, #ff6d70 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@utility drop-shadow-primary {
+    filter: drop-shadow(4px 4px 0px var(--primary));
+}
+
+@utility bg-wave {
+    background-image: url('/images/wave.svg');
+    background-repeat: repeat-x;
+}
+
+@utility bg-wave-reverse {
+    background-image: url('/images/wave-reverse.svg');
+    background-repeat: repeat-x;
 }
