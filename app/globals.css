@@ -73,7 +73,8 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition: --header-gradient-x 0.2s linear,
+        transition:
+            --header-gradient-x 0.2s linear,
             --header-gradient-y 0.2s linear;
     }
 }
@@ -92,4 +93,15 @@ body {
     left: 0;
     z-index: 10;
     width: 100%;
+}
+
+@utility text-gradient {
+    background: linear-gradient(30deg, #fb04ff 0%, #ff6d70 50%, #ff6d70 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@utility drop-shadow-primary {
+    filter: drop-shadow(4px 4px 0px var(--primary));
 }
