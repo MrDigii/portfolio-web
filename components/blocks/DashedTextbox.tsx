@@ -23,7 +23,7 @@ const DashedTextbox: FC<{ className?: string; text?: string }> = ({
                     strokeDasharray="9 9"
                 />
             </svg>
-            <p className="inline-block py-1.5 px-3 font-mono text-2xl">
+            <p className="inline-block py-1.5 px-3 font-mono text-xl md:text-2xl">
                 {text}
             </p>
         </div>

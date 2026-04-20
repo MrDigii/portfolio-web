@@ -22,7 +22,7 @@ const Intro: FC<{
             {title && (
                 <div className="text-center md:text-right space-y-4">
                     <h1
-                        className="font-sans font-bold text-7xl"
+                        className="font-sans font-bold text-6xl md:text-7xl"
                         dangerouslySetInnerHTML={{ __html: title }}
                     />
                     {subtitle && <DashedTextbox text={subtitle} />}
@@ -34,7 +34,7 @@ const Intro: FC<{
                     alt={avatar.alt || 'Avatar'}
                     width={300}
                     height={300}
-                    className="flex-[0_0_250px] size-62.5 md:flex-[0_0_300px] md:size-75 rounded-full overflow-hidden drop-shadow-primary"
+                    className="w-62.5 h-auto md:flex-[0_0_300px] md:w-75 rounded-full overflow-hidden drop-shadow-primary"
                 />
             )}
         </section>
