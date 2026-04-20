@@ -25,7 +25,10 @@ export default function Home() {
                     className="mt-20 md:mt-40"
                 />
             </Layout.Header>
-            <Layout.Main className="bg-white h-400">Main</Layout.Main>
+            <Layout.Main className="relative bg-white h-400">
+                <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
+                <div className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse" />
+            </Layout.Main>
             <Layout.Footer className="bg-red-500 text-black h-75">
                 Footer
             </Layout.Footer>

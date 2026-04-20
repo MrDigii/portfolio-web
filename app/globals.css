@@ -74,8 +74,8 @@ body {
         );
 
         transition:
-            --header-gradient-x 0.4s ease-in-out,
-            --header-gradient-y 0.4s ease-in-out;
+            --header-gradient-x 0.4s linear,
+            --header-gradient-y 0.4s linear;
     }
 }
 
@@ -104,4 +104,14 @@ body {
 
 @utility drop-shadow-primary {
     filter: drop-shadow(4px 4px 0px var(--primary));
+}
+
+@utility bg-wave {
+    background-image: url('/images/wave.svg');
+    background-repeat: repeat-x;
+}
+
+@utility bg-wave-reverse {
+    background-image: url('/images/wave-reverse.svg');
+    background-repeat: repeat-x;
 }
