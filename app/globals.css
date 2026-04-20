@@ -57,7 +57,7 @@ body {
         position: absolute;
         inset: 0;
         background: #080037;
-        background-image: url('/images/gutter-bg.png');
+        background-image: url('/images/bg-gutter.svg');
         background-repeat: repeat;
     }
 
@@ -74,8 +74,8 @@ body {
         );
 
         transition:
-            --header-gradient-x 0.2s linear,
-            --header-gradient-y 0.2s linear;
+            --header-gradient-x 0.4s ease-in-out,
+            --header-gradient-y 0.4s ease-in-out;
     }
 }
 
