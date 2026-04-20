@@ -29,7 +29,7 @@ export default function Home() {
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
                 <div className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse" />
             </Layout.Main>
-            <Layout.Footer className="bg-red-500 text-black h-75">
+            <Layout.Footer className="bg-red-500 text-black h-123">
                 Footer
             </Layout.Footer>
         </Layout.View>

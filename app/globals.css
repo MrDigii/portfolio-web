@@ -7,7 +7,7 @@
     --secondary: #8a8bc9;
 
     --header-height: 800px;
-    --footer-height: 300px;
+    --footer-height: 492px;
 }
 
 @theme inline {
@@ -76,6 +76,52 @@ body {
         transition:
             --header-gradient-x 0.4s linear,
             --header-gradient-y 0.4s linear;
+    }
+}
+
+@property --footer-gradient-x {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --footer-gradient-y {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@utility layout__footer__bg {
+    position: absolute;
+    display: block;
+    inset: 0;
+    z-index: -1;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background-image: url('/images/bg-gutter.svg');
+        background-repeat: repeat;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background: radial-gradient(
+            circle at var(--footer-gradient-x) var(--footer-gradient-y),
+            rgba(35, 0, 222, 0.4) 0%,
+            rgba(10, 0, 64, 0.4) 100%
+        );
+
+        transition:
+            --footer-gradient-x 0.4s linear,
+            --footer-gradient-y 0.4s linear;
     }
 }
 

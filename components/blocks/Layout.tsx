@@ -100,6 +100,11 @@ const Footer = forwardRef<
         delay: 100,
     });
 
+    const { x: mouseX, y: mouseY } = useMousePosition({
+        axis: 'both',
+        delay: 5,
+    });
+
     useImperativeHandle<HTMLElement | null, HTMLElement | null>(
         ref,
         () => footerRef.current
@@ -112,9 +117,33 @@ const Footer = forwardRef<
         root.style.setProperty('--footer-height', `${height}px`);
     }, [height]);
 
+    useEffect(() => {
+        if (!footerRef.current || mouseX === null || mouseY === null) return;
+
+        const xPercent =
+            ((mouseX - footerRef.current.offsetLeft) * 100) /
+            footerRef.current.offsetWidth;
+        const yPercent =
+            ((mouseY - footerRef.current.offsetTop) * 100) /
+            footerRef.current.offsetHeight;
+
+        const root = document.documentElement;
+
+        if (xPercent <= 100) {
+            root.style.setProperty('--footer-gradient-x', `${xPercent}%`);
+        }
+
+        if (yPercent <= 100) {
+            root.style.setProperty('--footer-gradient-y', `${yPercent}%`);
+        }
+    }, [mouseX, mouseY]);
+
     return (
         <footer ref={footerRef} className={cn('layout__footer', className)}>
-            {children}
+            <div className="layout__footer__bg" />
+            <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+                {children}
+            </div>
         </footer>
     );
 });
