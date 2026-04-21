@@ -6,6 +6,8 @@
     --primary: #ec646b;
     --secondary: #8a8bc9;
 
+    --medium: #f2f2f2;
+
     --header-height: 800px;
     --footer-height: 492px;
 }
@@ -15,6 +17,7 @@
     --color-foreground: var(--foreground);
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
+    --color-medium: var(--medium);
     --font-sans: var(--font-space-grotesk);
     --font-mono: var(--font-fira-mono);
 }
@@ -73,8 +76,7 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition:
-            --header-gradient-x 0.4s linear,
+        transition: --header-gradient-x 0.4s linear,
             --header-gradient-y 0.4s linear;
     }
 }
@@ -119,8 +121,7 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition:
-            --footer-gradient-x 0.4s linear,
+        transition: --footer-gradient-x 0.4s linear,
             --footer-gradient-y 0.4s linear;
     }
 }
@@ -160,4 +161,16 @@ body {
 @utility bg-wave-reverse {
     background-image: url('/images/wave-reverse.svg');
     background-repeat: repeat-x;
+}
+
+@utility section-spacing {
+    @apply py-24;
+
+    section[data-bg-ident='light'] + &[data-bg-ident='light'] {
+        @apply !pt-0;
+    }
+
+    section[data-bg-ident='medium'] + &[data-bg-ident='medium'] {
+        @apply !pt-0;
+    }
 }

@@ -1,11 +1,15 @@
 import { FC } from 'react';
-import Section from '../base/Section';
+import Section, { BgMode } from '../base/Section';
 import Wrapper from '../base/Wrapper';
 import { cn } from '@/lib/utils';
 
-const TwoUp: FC<{ text?: string; aside?: string }> = ({ text, aside }) => {
+const TwoUp: FC<{ text?: string; aside?: string; background?: BgMode }> = ({
+    text,
+    aside,
+    background,
+}) => {
     return (
-        <Section>
+        <Section addSeperation background={background}>
             <Wrapper spacing="big" className="flex justify-center pt-7">
                 <div
                     className={cn(

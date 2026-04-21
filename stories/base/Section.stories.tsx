@@ -19,3 +19,18 @@ export const Default: Story = {
         children: <div className="bg-gray-200">content</div>,
     },
 };
+
+export const Seperation: Story = {
+    args: {
+        addSeperation: true,
+        children: <div className="bg-gray-200">content</div>,
+    },
+};
+
+export const MediumBackground: Story = {
+    args: {
+        addSeperation: true,
+        background: 'medium',
+        children: <div className="bg-gray-200">content</div>,
+    },
+};
