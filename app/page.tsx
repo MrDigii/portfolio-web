@@ -2,6 +2,7 @@ import Intro from '@/components/sections/Intro';
 import * as Layout from '@/components/blocks/Layout';
 import Navigation from '@/components/blocks/Navigation';
 import TwoUp from '@/components/sections/TwoUp';
+import Skills from '@/components/sections/Skills';
 
 export default function Home() {
     return (
@@ -31,6 +32,25 @@ export default function Home() {
                 <TwoUp
                     text="Helping brands to stand out in the digital era. Togethcer we will set the new status quo. No nonsense, always on the currting edge."
                     aside="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
+                    className="pt-0 md:pt-12"
+                />
+                <Skills
+                    background="medium"
+                    title="Darin bin ich gut..."
+                    items={[
+                        {
+                            title: 'Webentwicklung',
+                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                        },
+                        {
+                            title: 'SaaS Entwicklung',
+                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                        },
+                        {
+                            title: 'Kommunikation',
+                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                        },
+                    ]}
                 />
                 <div className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse" />
             </Layout.Main>

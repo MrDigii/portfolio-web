@@ -7,14 +7,16 @@ const Section: FC<{
     addSeperation?: boolean;
     background?: BgMode;
     children?: ReactNode;
-}> = ({ addSeperation, background = 'light', children }) => {
+    className?: string;
+}> = ({ addSeperation, background = 'light', children, className }) => {
     return (
         <section
             data-bg-ident={background}
             className={cn(
                 'bg-background',
                 addSeperation && 'section-spacing',
-                background === 'medium' && 'bg-medium'
+                background === 'medium' && 'bg-medium',
+                className
             )}
         >
             {children}

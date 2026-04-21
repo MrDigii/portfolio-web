@@ -14,7 +14,7 @@ const Intro: FC<{
     return (
         <section
             className={cn(
-                'flex flex-col-reverse md:flex-row items-center justify-center gap-10 text-foreground',
+                'flex flex-col-reverse md:flex-row items-center justify-center gap-6 md:gap-10 text-foreground',
                 isInverted && 'text-white',
                 className
             )}

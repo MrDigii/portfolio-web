@@ -3,13 +3,14 @@ import Section, { BgMode } from '../base/Section';
 import Wrapper from '../base/Wrapper';
 import { cn } from '@/lib/utils';
 
-const TwoUp: FC<{ text?: string; aside?: string; background?: BgMode }> = ({
-    text,
-    aside,
-    background,
-}) => {
+const TwoUp: FC<{
+    text?: string;
+    aside?: string;
+    background?: BgMode;
+    className?: string;
+}> = ({ text, aside, background, className }) => {
     return (
-        <Section addSeperation background={background}>
+        <Section addSeperation background={background} className={className}>
             <Wrapper spacing="big" className="flex justify-center pt-7">
                 <div
                     className={cn(
