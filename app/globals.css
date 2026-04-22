@@ -128,7 +128,7 @@ body {
 
 @utility layout__main {
     position: relative;
-    z-index: 30;
+    z-index: 40;
     margin-top: var(--header-height);
     margin-bottom: var(--footer-height);
     width: 100%;

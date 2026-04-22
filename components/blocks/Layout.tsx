@@ -10,6 +10,7 @@ import {
     useEffect,
     useImperativeHandle,
     useRef,
+    useState,
 } from 'react';
 
 const Layout: FC<{ children?: ReactNode }> = ({ children }) => {
@@ -94,6 +95,7 @@ const Footer = forwardRef<
     { className?: string; children?: ReactNode }
 >(({ className, children }, ref) => {
     const footerRef = useRef<HTMLElement>(null);
+    const [isInView, setIsInView] = useState(false);
     const { height } = useResize({
         ref: footerRef,
         axis: 'height',
@@ -138,8 +140,30 @@ const Footer = forwardRef<
         }
     }, [mouseX, mouseY]);
 
+    useEffect(() => {
+        const updateInViewCalc = () => {
+            if (!footerRef.current) return;
+
+            const footerRect = footerRef.current.getBoundingClientRect();
+            const maxScrollY =
+                document.documentElement.scrollHeight - window.innerHeight;
+
+            setIsInView(window.scrollY >= maxScrollY - footerRect.height);
+        };
+
+        updateInViewCalc();
+        document.addEventListener('scroll', updateInViewCalc);
+
+        return () => {
+            document.removeEventListener('scroll', updateInViewCalc);
+        };
+    });
+
     return (
-        <footer ref={footerRef} className={cn('layout__footer', className)}>
+        <footer
+            ref={footerRef}
+            className={cn('layout__footer', isInView && 'z-30', className)}
+        >
             <div className="layout__footer__bg" />
             <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
                 {children}
