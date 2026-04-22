@@ -32,7 +32,7 @@ export default function Home() {
                 <TwoUp
                     text="Helping brands to stand out in the digital era. Togethcer we will set the new status quo. No nonsense, always on the currting edge."
                     aside="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
-                    className="pt-0 md:pt-12"
+                    className="pt-0 md:pt-10"
                 />
                 <Skills
                     background="medium"

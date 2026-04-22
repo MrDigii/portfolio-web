@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Section, { BgMode } from '../base/Section';
 import Wrapper from '../base/Wrapper';
-import { cn } from '@/lib/utils';
 import Heading from '../typography/Heading';
 import { isValidArray } from '@/lib/arrays';
 
@@ -26,16 +25,19 @@ const Skills: FC<{ title?: string; items?: Skill[]; background?: BgMode }> = ({
                 {isValidArray(items, false) && (
                     <ul
                         aria-label="Skill list"
-                        className="flex flex-wrap flex-col justify-center md:flex-row gap-11"
+                        className="flex flex-wrap flex-col items-center justify-center md:flex-row gap-11"
                     >
                         {items.map((item, i) => (
                             <li
                                 key={i}
-                                className="space-y-8 flex-[0_0_48%] xl:flex-[0_0_30%] xl:min-w-92.5"
+                                className="space-y-8 max-w-125 md:w-[calc(50%-2.75rem)] xl:w-[calc(33.333%-2.75rem)]"
                             >
                                 {item.title && (
-                                    <Heading size="heading-3">
-                                        {item.title}
+                                    <Heading
+                                        size="heading-3"
+                                        className="after:block after:w-7.5 after:h-0.75 after:bg-primary after:mt-2"
+                                    >
+                                        <span>{item.title}</span>
                                     </Heading>
                                 )}
                                 {item.text && (
