@@ -20,6 +20,17 @@
     --color-medium: var(--medium);
     --font-sans: var(--font-space-grotesk);
     --font-mono: var(--font-fira-mono);
+
+    --animate-scroll: scroll 40s linear infinite;
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
 }
 
 body {
@@ -173,4 +184,8 @@ body {
     section[data-bg-ident='medium'] + &[data-bg-ident='medium'] {
         @apply !pt-0;
     }
+}
+
+@utility pause-animation {
+    animation-play-state: paused;
 }
