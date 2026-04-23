@@ -59,7 +59,7 @@ const Gallery: React.FC<GalleryProps & { className?: string }> = ({
                         {title}
                     </Heading>
                 )}
-                <ul className="flex flex-col gap-6 md:grid md:grid-cols-[1fr_21.823%_1fr] md:gap-[2%] md:gap-y-6 desktop:gap-y-10 list-none">
+                <ul className="flex flex-col gap-6 gap-y-8 md:grid md:grid-cols-[1fr_21.823%_1fr] md:gap-[2%] md:gap-y-12 list-none">
                     {rows.map((row, i) => {
                         const format = row.format || 'landscape';
 

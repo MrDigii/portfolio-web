@@ -3,6 +3,7 @@ import * as Layout from '@/components/blocks/Layout';
 import Navigation from '@/components/blocks/Navigation';
 import TwoUp from '@/components/sections/TwoUp';
 import Skills from '@/components/sections/Skills';
+import Gallery from '@/components/sections/Gallery';
 
 export default function Home() {
     return (
@@ -27,7 +28,7 @@ export default function Home() {
                     className="mt-20 md:mt-40"
                 />
             </Layout.Header>
-            <Layout.Main className="relative bg-white h-400">
+            <Layout.Main className="relative bg-white">
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
                 <TwoUp
                     text="Helping brands to stand out in the digital era. Togethcer we will set the new status quo. No nonsense, always on the currting edge."
@@ -231,6 +232,88 @@ export default function Home() {
                                 height: 60,
                             },
                             name: 'Redux',
+                        },
+                    ]}
+                />
+                <Gallery
+                    title="Das habe ich gemacht..."
+                    rows={[
+                        {
+                            format: 'largerLeft',
+                            items: [
+                                {
+                                    src: '/images/projects/output-stadt_überlingen.png',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Web & Dienstleistungsportal Stadt Überlingen',
+                                    description:
+                                        'Web & Dienstleistungsportal <b>Stadt Überlingen</b>',
+                                },
+                                {
+                                    src: '/images/projects/case_owlyAPP.png',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Project Management SaaS Anwendung Owly',
+                                    description:
+                                        'Project Management SaaS Anwendung <b>Owly</b>',
+                                },
+                            ],
+                        },
+                        {
+                            format: 'largerRight',
+                            items: [
+                                {
+                                    src: '/images/projects/output_Leibold.png',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'TANKCloud SaaS Entwicklung Leibold',
+                                    description:
+                                        'TANKCloud SaaS Entwicklung <b>Leibold</b>',
+                                },
+                                {
+                                    src: '/images/projects/output_PIZ vhotel.png',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Online-Plattform für verantwortungsvolles Gastgeben PIZ & Montafon Tourismus',
+                                    description:
+                                        'Online-Plattform für verantwortungsvolles Gastgeben <b>PIZ & Montafon Tourismus</b>',
+                                },
+                            ],
+                        },
+                        {
+                            format: 'landscape',
+                            items: [
+                                {
+                                    src: '/images/projects/output_Publify_Web.jpg',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Publify - News-Platform für Vereine & Kommunen',
+                                    description:
+                                        'News-Platform für Vereine & Kommunen <b>Publify</b>',
+                                },
+                            ],
+                        },
+                        {
+                            format: 'largerLeft',
+                            items: [
+                                {
+                                    src: '/videos/KeepTheClockGoingReel.mp4',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Video content',
+                                    type: 'video',
+                                    description:
+                                        'Interaktive Installation - Keep the Clock Going <b>Hochschule Furtwangen</b>',
+                                },
+                                {
+                                    src: '/images/projects/output_Leitwerk Time app_2.png',
+                                    width: 800,
+                                    height: 600,
+                                    alt: 'Timetrack-App für Leitwerk Consulting',
+                                    description:
+                                        'Timetrack-App <b>Leitwerk Consulting</b>',
+                                },
+                            ],
                         },
                     ]}
                 />
