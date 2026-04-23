@@ -21,7 +21,8 @@
     --font-sans: var(--font-space-grotesk);
     --font-mono: var(--font-fira-mono);
 
-    --animate-scroll: scroll 40s linear infinite;
+    --animate-scroll: scroll var(--infinite-scroll-duration, 40s) linear
+        infinite;
 
     @keyframes scroll {
         0% {
@@ -87,7 +88,8 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition: --header-gradient-x 0.4s linear,
+        transition:
+            --header-gradient-x 0.4s linear,
             --header-gradient-y 0.4s linear;
     }
 }
@@ -132,7 +134,8 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition: --footer-gradient-x 0.4s linear,
+        transition:
+            --footer-gradient-x 0.4s linear,
             --footer-gradient-y 0.4s linear;
     }
 }
