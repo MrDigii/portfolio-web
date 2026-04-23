@@ -147,6 +147,7 @@ const Media: React.FC<{
                     alt={image.alt || ''}
                     {...aspectSizes}
                     priority={false}
+                    loading="lazy"
                     sizes={`(max-width: 832px) 100vw, (max-width: 1440px) ${
                         variant === 'landscape' ? '100vw' : '60vw'
                     }, ${aspectSizes.width}px`}

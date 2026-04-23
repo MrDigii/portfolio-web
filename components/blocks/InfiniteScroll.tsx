@@ -27,6 +27,8 @@ const ScrollItem: FC<{
                 width={item.logo.width}
                 height={item.logo.height}
                 alt={asDecoration ? '' : item.logo.alt}
+                loading="lazy"
+                priority={false}
                 style={{
                     height: logoHeight,
                     flex: `0 0 ${logoHeight}px`,

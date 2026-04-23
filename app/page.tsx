@@ -263,7 +263,7 @@ export default function Home() {
                             format: 'largerRight',
                             items: [
                                 {
-                                    src: '/images/projects/output_Leibold.png',
+                                    src: '/images/projects/leibold_mockup.png',
                                     width: 800,
                                     height: 600,
                                     alt: 'TANKCloud SaaS Entwicklung Leibold',
