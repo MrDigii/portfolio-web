@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Section, { BgMode } from '../base/Section';
 import Wrapper from '../base/Wrapper';
 import InfiniteScroll, { InfiniteScrollItem } from '../blocks/InfiniteScroll';
-import Heading from '../typography/Heading';
+import Heading, { HeadingTag } from '../typography/Heading';
 
 export interface Skill {
     title?: string;
@@ -14,15 +14,20 @@ export type Tool = InfiniteScrollItem;
 
 const Skills: FC<{
     title?: string;
+    titleTag?: HeadingTag;
     items?: Skill[];
     tools?: Tool[];
     background?: BgMode;
-}> = ({ title, items, tools, background }) => {
+}> = ({ title, titleTag = 'h2', items, tools, background }) => {
     return (
         <Section addSeperation background={background}>
             <Wrapper spacing="default" className="space-y-24">
                 {title && (
-                    <Heading size="heading-1" className="text-center">
+                    <Heading
+                        tag={titleTag}
+                        size="heading-1"
+                        className="text-center"
+                    >
                         {title}
                     </Heading>
                 )}
