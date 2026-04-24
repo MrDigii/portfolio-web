@@ -4,13 +4,19 @@ import Wrapper from '../base/Wrapper';
 import { cn } from '@/lib/utils';
 
 const TwoUp: FC<{
+    id?: string;
     text?: string;
     aside?: string;
     background?: BgMode;
     className?: string;
-}> = ({ text, aside, background, className }) => {
+}> = ({ id, text, aside, background, className }) => {
     return (
-        <Section addSeperation background={background} className={className}>
+        <Section
+            id={id}
+            addSeperation
+            background={background}
+            className={className}
+        >
             <Wrapper spacing="big" className="flex justify-center pt-7">
                 <div
                     className={cn(

@@ -43,6 +43,7 @@ export interface GalleryRow {
 }
 
 export interface GalleryProps {
+    id?: string;
     title?: string;
     titleTag?: 'h1' | 'h2';
     rows: GalleryRow[];
@@ -50,6 +51,7 @@ export interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps & { className?: string }> = ({
+    id,
     rows,
     title,
     titleTag = 'h2',
@@ -57,8 +59,13 @@ const Gallery: React.FC<GalleryProps & { className?: string }> = ({
     className,
 }) => {
     return (
-        <Section addSeperation background={background} className={className}>
-            <Wrapper spacing="default" className="space-y-24">
+        <Section
+            id={id}
+            addSeperation
+            background={background}
+            className={className}
+        >
+            <Wrapper spacing="default" className="space-y-20 md:space-y-24">
                 {title && (
                     <Heading
                         tag={titleTag}

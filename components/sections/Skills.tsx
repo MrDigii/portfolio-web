@@ -13,16 +13,22 @@ export interface Skill {
 export type Tool = InfiniteScrollItem;
 
 const Skills: FC<{
+    id?: string;
     title?: string;
     titleTag?: HeadingTag;
     items?: Skill[];
     tools?: Tool[];
     background?: BgMode;
     className?: string;
-}> = ({ title, titleTag = 'h2', items, tools, background, className }) => {
+}> = ({ id, title, titleTag = 'h2', items, tools, background, className }) => {
     return (
-        <Section addSeperation background={background} className={className}>
-            <Wrapper spacing="default" className="space-y-24">
+        <Section
+            id={id}
+            addSeperation
+            background={background}
+            className={className}
+        >
+            <Wrapper spacing="default" className="space-y-20 md:space-y-24">
                 {title && (
                     <Heading
                         tag={titleTag}

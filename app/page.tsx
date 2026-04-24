@@ -31,6 +31,7 @@ export default function Home() {
             <Layout.Main className="relative bg-white">
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
                 <TwoUp
+                    id="about"
                     text="Helping brands to stand out in the digital era. Togethcer we will set the new status quo. No nonsense, always on the currting edge."
                     aside="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
                     className="pt-0 md:pt-10"
@@ -236,6 +237,7 @@ export default function Home() {
                     ]}
                 />
                 <Gallery
+                    id="projects"
                     title="Mein Portfolio"
                     rows={[
                         {
@@ -342,7 +344,10 @@ export default function Home() {
                     ]}
                     className="pb-0 md:pb-10"
                 />
-                <div className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse" />
+                <div
+                    id="contact"
+                    className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse"
+                />
             </Layout.Main>
             <Layout.Footer className="bg-red-500 text-black h-123">
                 Footer

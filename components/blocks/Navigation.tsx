@@ -1,7 +1,9 @@
+'use client';
+
 import { isValidArray } from '@/lib/arrays';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, SyntheticEvent } from 'react';
 
 export interface NavItem {
     label: string;
@@ -14,6 +16,21 @@ const Navigation: FC<{
     items?: NavItem[];
     className?: string;
 }> = ({ title, items, className }) => {
+    const handleNavItemClick = (ev: SyntheticEvent<HTMLAnchorElement>) => {
+        const target = ev.currentTarget;
+        const href = target.getAttribute('href');
+
+        if (href && href.startsWith('#')) {
+            ev.preventDefault();
+
+            const section = document.querySelector(href);
+            section?.scrollIntoView({ behavior: 'smooth' });
+
+            // add hash to url
+            history.pushState(null, '', href);
+        }
+    };
+
     return (
         <nav className={cn('flex space-between', className)}>
             {title && (
@@ -34,8 +51,9 @@ const Navigation: FC<{
                                         ? 'noopener noreferrer'
                                         : undefined
                                 }
+                                onClick={handleNavItemClick}
                                 className={cn(
-                                    'font-normal text-base uppercase py-1 border-b border-b-transparent outline-none transition-colors',
+                                    'font-normal text-base uppercase py-1 border-b-2 border-b-transparent outline-none transition-colors',
                                     'hover:border-b-secondary focus-visible:border-b-secondary'
                                 )}
                             >
