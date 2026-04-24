@@ -54,9 +54,10 @@ const Gallery: React.FC<GalleryProps & { className?: string }> = ({
     title,
     titleTag = 'h2',
     background,
+    className,
 }) => {
     return (
-        <Section addSeperation background={background}>
+        <Section addSeperation background={background} className={className}>
             <Wrapper spacing="default" className="space-y-24">
                 {title && (
                     <Heading

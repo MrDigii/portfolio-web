@@ -340,6 +340,7 @@ export default function Home() {
                             ],
                         },
                     ]}
+                    className="pb-0 md:pb-10"
                 />
                 <div className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse" />
             </Layout.Main>
