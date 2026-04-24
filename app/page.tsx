@@ -236,13 +236,13 @@ export default function Home() {
                     ]}
                 />
                 <Gallery
-                    title="Das habe ich gemacht..."
+                    title="Mein Portfolio"
                     rows={[
                         {
                             format: 'largerLeft',
                             items: [
                                 {
-                                    src: '/images/projects/output-stadt_überlingen.png',
+                                    src: '/images/projects/output-stadt_ueberlingen.png',
                                     width: 800,
                                     height: 600,
                                     alt: 'Web & Dienstleistungsportal Stadt Überlingen',
