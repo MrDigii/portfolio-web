@@ -247,7 +247,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'Web & Dienstleistungsportal Stadt Überlingen',
                                     description:
-                                        'Web & Dienstleistungsportal <b>Stadt Überlingen</b>',
+                                        'Web & Dienstleistungsportal <b class="external-link">Stadt Überlingen</b>',
+                                    link: {
+                                        href: 'https://www.ueberlingen.de/',
+                                        isExternal: true,
+                                    },
                                 },
                                 {
                                     src: '/images/projects/case_owlyAPP.png',
@@ -255,7 +259,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'Project Management SaaS Anwendung Owly',
                                     description:
-                                        'Project Management SaaS Anwendung <b>Owly</b>',
+                                        'Project Management SaaS Anwendung <b class="external-link">Owly</b>',
+                                    link: {
+                                        href: 'https://owlyapp.com/',
+                                        isExternal: true,
+                                    },
                                 },
                             ],
                         },
@@ -268,7 +276,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'TANKCloud SaaS Entwicklung Leibold',
                                     description:
-                                        'TANKCloud SaaS Entwicklung <b>Leibold</b>',
+                                        'TANKCloud SaaS Entwicklung <b class="external-link">Leibold</b>',
+                                    link: {
+                                        href: 'https://www.leibold-tankdaten.de/produkt-tanktouch-mit-tankcloud/',
+                                        isExternal: true,
+                                    },
                                 },
                                 {
                                     src: '/images/projects/output_PIZ vhotel.png',
@@ -276,7 +288,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'Online-Plattform für verantwortungsvolles Gastgeben PIZ & Montafon Tourismus',
                                     description:
-                                        'Online-Plattform für verantwortungsvolles Gastgeben <b>PIZ & Montafon Tourismus</b>',
+                                        'Online-Plattform für verantwortungsvolles Gastgeben <b class="external-link">PIZ & Montafon Tourismus</b>',
+                                    link: {
+                                        href: 'https://www.piz-vhotel.at/',
+                                        isExternal: true,
+                                    },
                                 },
                             ],
                         },
@@ -289,7 +305,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'Publify - News-Platform für Vereine & Kommunen',
                                     description:
-                                        'News-Platform für Vereine & Kommunen <b>Publify</b>',
+                                        'News-Platform für Vereine & Kommunen <b class="external-link">Publify</b>',
+                                    link: {
+                                        href: 'https://www.publify.io/',
+                                        isExternal: true,
+                                    },
                                 },
                             ],
                         },
@@ -311,7 +331,11 @@ export default function Home() {
                                     height: 600,
                                     alt: 'Timetrack-App für Leitwerk Consulting',
                                     description:
-                                        'Timetrack-App <b>Leitwerk Consulting</b>',
+                                        'Timetrack-App <b class="external-link">Leitwerk Consulting</b>',
+                                    link: {
+                                        href: 'https://timer.leitwerk-consulting.com/',
+                                        isExternal: true,
+                                    },
                                 },
                             ],
                         },

@@ -13,7 +13,11 @@ export interface VideoProps {
 }
 
 const Video: FC<
-    VideoProps & { style?: React.CSSProperties; className?: string }
+    VideoProps & {
+        style?: React.CSSProperties;
+        tabIndex?: number;
+        className?: string;
+    }
 > = ({
     urls,
     muted,
@@ -22,6 +26,7 @@ const Video: FC<
     controls,
     playsInline,
     style,
+    tabIndex,
     className,
 }) => {
     const [isVideoActive, setVideoActive] = useState<boolean>(false);
@@ -61,6 +66,7 @@ const Video: FC<
             controls={controls}
             playsInline={playsInline}
             style={style}
+            tabIndex={tabIndex}
             className={className}
         >
             {isVideoActive &&

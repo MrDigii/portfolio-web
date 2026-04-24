@@ -126,6 +126,85 @@ export const WithDescription: Story = {
     },
 };
 
+export const WithLinks: Story = {
+    args: {
+        title: 'Portfolio',
+        rows: [
+            {
+                format: 'landscape',
+                items: [
+                    {
+                        src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&crop=center',
+                        width: 800,
+                        height: 600,
+                        alt: 'Landscape image 1',
+                        description:
+                            '<b>Content Produkt Shooting</b><br /> Follow Food',
+                        link: {
+                            href: 'https://www.followfood.com',
+                            isExternal: true,
+                        },
+                    },
+                ],
+            },
+            {
+                format: 'largerLeft',
+                items: [
+                    {
+                        src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&crop=center',
+                        width: 800,
+                        height: 600,
+                        alt: 'Landscape image 1',
+                        description:
+                            '<b>Content Produkt Shooting</b><br /> Follow Food',
+                        link: {
+                            href: 'https://www.followfood.com',
+                            isExternal: true,
+                        },
+                    },
+                    {
+                        src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&crop=center',
+                        width: 800,
+                        height: 600,
+                        alt: 'Landscape image 1',
+                        description:
+                            '<b>Content Produkt Shooting</b><br /> Follow Food',
+                        link: {
+                            href: 'https://www.followfood.com',
+                            isExternal: true,
+                        },
+                    },
+                ],
+            },
+            {
+                format: 'largerRight',
+                items: [
+                    {
+                        src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&crop=center',
+                        width: 800,
+                        height: 600,
+                        alt: 'Landscape image 1',
+                        link: {
+                            href: 'https://www.followfood.com',
+                            isExternal: true,
+                        },
+                    },
+                    {
+                        src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop&crop=center',
+                        width: 800,
+                        height: 600,
+                        alt: 'Landscape image 1',
+                        link: {
+                            href: 'https://www.followfood.com',
+                            isExternal: true,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+};
+
 export const WithVideo: Story = {
     args: {
         title: 'Portfolio',

@@ -6,19 +6,23 @@ import Wrapper from '../base/Wrapper';
 import Heading from '../typography/Heading';
 import Image from 'next/image';
 import Video from '../blocks/Video';
+import Link from 'next/link';
 
-const itemVariants = cva('relative max-w-full', {
-    variants: {
-        variant: {
-            landscape: 'col-start-1 col-span-3',
-            medium: 'col-span-2',
-            portrait: 'col-span-1',
+const itemVariants = cva(
+    'group relative max-w-full has-[:focus-visible]:outline-2 outline-offset-4 rounded-[20px]',
+    {
+        variants: {
+            variant: {
+                landscape: 'col-start-1 col-span-3',
+                medium: 'col-span-2',
+                portrait: 'col-span-1',
+            },
         },
-    },
-    defaultVariants: {
-        variant: 'landscape',
-    },
-});
+        defaultVariants: {
+            variant: 'landscape',
+        },
+    }
+);
 
 export type GalleryItem = {
     type?: 'image' | 'video';
@@ -27,6 +31,10 @@ export type GalleryItem = {
     height: number;
     src: string;
     alt?: string;
+    link?: {
+        href: string;
+        isExternal?: boolean;
+    };
 };
 
 export interface GalleryRow {
@@ -93,14 +101,39 @@ const Gallery: React.FC<GalleryProps & { className?: string }> = ({
                                                 width: item.width,
                                                 height: item.height,
                                             }}
+                                            className={cn(
+                                                item.link?.href &&
+                                                    'group-hover:shadow-lg transition-shadow'
+                                            )}
                                         />
                                         {item.description && (
-                                            <figcaption
-                                                className="mt-2 desktop:mt-6 font-sans font-normal text-lg"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: item.description,
-                                                }}
-                                            />
+                                            <figcaption className="mt-2 desktop:mt-6 font-sans font-normal text-lg">
+                                                {item.link?.href ? (
+                                                    <Link
+                                                        href={item.link.href}
+                                                        target={
+                                                            item.link.isExternal
+                                                                ? '_blank'
+                                                                : undefined
+                                                        }
+                                                        rel={
+                                                            item.link.isExternal
+                                                                ? 'noopener noreferrer'
+                                                                : undefined
+                                                        }
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: item.description,
+                                                        }}
+                                                        className="outline-none before:absolute before:inset-0 before:z-10"
+                                                    />
+                                                ) : (
+                                                    <span
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: item.description,
+                                                        }}
+                                                    />
+                                                )}
+                                            </figcaption>
                                         )}
                                     </figure>
                                 </li>
@@ -162,6 +195,7 @@ const Media: React.FC<{
             )}
             {type === 'video' && (
                 <Video
+                    tabIndex={-1}
                     urls={image.src ? [image.src] : []}
                     autoPlay
                     muted
@@ -170,7 +204,7 @@ const Media: React.FC<{
                     playsInline
                     style={{ aspectRatio }}
                     className={cn(
-                        'object-cover object-center rounded-[20px] max-w-full w-full max-h-full',
+                        'object-cover object-center rounded-[20px] max-w-full w-full max-h-full outline-none',
                         className
                     )}
                 />

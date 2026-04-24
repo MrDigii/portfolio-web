@@ -88,8 +88,7 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition:
-            --header-gradient-x 0.4s linear,
+        transition: --header-gradient-x 0.4s linear,
             --header-gradient-y 0.4s linear;
     }
 }
@@ -134,8 +133,7 @@ body {
             rgba(10, 0, 64, 0.4) 100%
         );
 
-        transition:
-            --footer-gradient-x 0.4s linear,
+        transition: --footer-gradient-x 0.4s linear,
             --footer-gradient-y 0.4s linear;
     }
 }
@@ -191,4 +189,15 @@ body {
 
 @utility pause-animation {
     animation-play-state: paused;
+}
+
+@utility external-link {
+    @apply inline-flex items-center gap-1;
+
+    &:after {
+        content: url('/images/external-link.svg');
+        display: absolute;
+        top: 0;
+        right: 0;
+    }
 }
