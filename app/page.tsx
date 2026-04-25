@@ -5,6 +5,7 @@ import TwoUp from '@/components/sections/TwoUp';
 import Skills from '@/components/sections/Skills';
 import Gallery from '@/components/sections/Gallery';
 import Link from 'next/link';
+import BottomNavigation from '@/components/blocks/BottomNavigation';
 
 export default function Home() {
     return (
@@ -351,17 +352,14 @@ export default function Home() {
                 />
             </Layout.Main>
             <Layout.Footer className="flex flex-col">
-                <div className="flex items-center justify-between mt-auto font-sans font-normal text-base text-background">
-                    <span>© Lukas Wochner</span>
-                    <ul aria-label="Footer navigation" className="flex gap-4">
-                        <li>
-                            <Link href="/impressum">Impressum</Link>
-                        </li>
-                        <li>
-                            <Link href="/datenschutz">Datenschutz</Link>
-                        </li>
-                    </ul>
-                </div>
+                <BottomNavigation
+                    title="© Lukas Wochner"
+                    links={[
+                        { href: '/impressum', label: 'Impressum' },
+                        { href: '/datenschutz', label: 'Datenschutz' },
+                    ]}
+                    className="mt-auto"
+                />
             </Layout.Footer>
         </Layout.View>
     );

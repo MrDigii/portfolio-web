@@ -55,6 +55,7 @@ body {
     left: 0;
     z-index: 20;
     width: 100%;
+    height: var(--header-height);
 }
 
 @utility layout__header__bg {
@@ -149,6 +150,7 @@ body {
     left: 0;
     z-index: 10;
     width: 100%;
+    height: var(--footer-height);
 }
 
 @utility text-gradient {

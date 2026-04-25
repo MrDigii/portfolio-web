@@ -1,9 +1,8 @@
 import Wrapper from '@/components/base/Wrapper';
+import BottomNavigation from '@/components/blocks/BottomNavigation';
 import * as Layout from '@/components/blocks/Layout';
 import Navigation from '@/components/blocks/Navigation';
-import TwoUp from '@/components/sections/TwoUp';
 import Heading from '@/components/typography/Heading';
-import Link from 'next/link';
 
 export default function Impressum() {
     return (
@@ -105,17 +104,14 @@ export default function Impressum() {
                 />
             </Layout.Main>
             <Layout.Footer className="flex flex-col">
-                <div className="flex items-center justify-between mt-auto font-sans font-normal text-base text-background">
-                    <span>© Lukas Wochner</span>
-                    <ul aria-label="Footer navigation" className="flex gap-4">
-                        <li>
-                            <Link href="/impressum">Impressum</Link>
-                        </li>
-                        <li>
-                            <Link href="/datenschutz">Datenschutz</Link>
-                        </li>
-                    </ul>
-                </div>
+                <BottomNavigation
+                    title="© Lukas Wochner"
+                    links={[
+                        { href: '/impressum', label: 'Impressum' },
+                        { href: '/datenschutz', label: 'Datenschutz' },
+                    ]}
+                    className="mt-auto"
+                />
             </Layout.Footer>
         </Layout.View>
     );

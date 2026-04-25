@@ -18,13 +18,9 @@ export const Default: Story = {
     args: {
         children: (
             <>
-                <Layout.Header className="text-white h-270">
-                    Header
-                </Layout.Header>
+                <Layout.Header className="text-white">Header</Layout.Header>
                 <Layout.Main className="bg-red-500 h-400">Main</Layout.Main>
-                <Layout.Footer className="text-white h-123">
-                    Footer
-                </Layout.Footer>
+                <Layout.Footer className="text-white">Footer</Layout.Footer>
             </>
         ),
     },
