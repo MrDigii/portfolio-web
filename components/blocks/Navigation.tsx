@@ -20,7 +20,12 @@ const Navigation: FC<{
         const target = ev.currentTarget;
         const href = target.getAttribute('href');
 
-        if (href && href.startsWith('#')) {
+        // if has hash and link is on same site, scroll to section
+        const isOnSameSite =
+            target.origin === window.location.origin &&
+            target.pathname === window.location.pathname;
+
+        if (href && href.startsWith('#') && isOnSameSite) {
             ev.preventDefault();
 
             const section = document.querySelector(href);

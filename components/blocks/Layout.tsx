@@ -165,7 +165,7 @@ const Footer = forwardRef<
             className={cn('layout__footer', isInView && 'z-30', className)}
         >
             <div className="layout__footer__bg" />
-            <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+            <div className="mx-auto mt-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
                 {children}
             </div>
         </footer>

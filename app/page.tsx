@@ -4,6 +4,7 @@ import Navigation from '@/components/blocks/Navigation';
 import TwoUp from '@/components/sections/TwoUp';
 import Skills from '@/components/sections/Skills';
 import Gallery from '@/components/sections/Gallery';
+import Link from 'next/link';
 
 export default function Home() {
     return (
@@ -349,8 +350,18 @@ export default function Home() {
                     className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse"
                 />
             </Layout.Main>
-            <Layout.Footer className="bg-red-500 text-black h-123">
-                Footer
+            <Layout.Footer className="flex flex-col h-123">
+                <div className="flex items-center justify-between mt-auto font-sans font-normal text-base text-background">
+                    <span>© Lukas Wochner</span>
+                    <ul aria-label="Footer navigation" className="flex gap-4">
+                        <li>
+                            <Link href="/impressum">Impressum</Link>
+                        </li>
+                        <li>
+                            <Link href="/datenschutz">Datenschutz</Link>
+                        </li>
+                    </ul>
+                </div>
             </Layout.Footer>
         </Layout.View>
     );
