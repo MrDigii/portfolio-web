@@ -25,6 +25,8 @@ const Navigation: FC<{
             target.origin === window.location.origin &&
             target.pathname === window.location.pathname;
 
+        console.log({ isOnSameSite, href });
+
         if (href && href.startsWith('#') && isOnSameSite) {
             ev.preventDefault();
 

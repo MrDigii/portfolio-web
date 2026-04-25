@@ -1,7 +1,6 @@
 'use client';
 
 import { useMousePosition } from '@/lib/useMousePosition';
-import { useResize } from '@/lib/useResize';
 import { cn } from '@/lib/utils';
 import {
     FC,
@@ -19,14 +18,13 @@ const Layout: FC<{ children?: ReactNode }> = ({ children }) => {
 
 const Header = forwardRef<
     HTMLElement,
-    { className?: string; children?: ReactNode }
->(({ className, children }, ref) => {
+    {
+        height?: string;
+        className?: string;
+        children?: ReactNode;
+    }
+>(({ height = '800px', className, children }, ref) => {
     const headerRef = useRef<HTMLElement>(null);
-    const { height } = useResize({
-        ref: headerRef,
-        axis: 'height',
-        delay: 100,
-    });
     const { x: mouseX, y: mouseY } = useMousePosition({
         axis: 'both',
         delay: 5,
@@ -36,13 +34,6 @@ const Header = forwardRef<
         ref,
         () => headerRef.current
     );
-
-    useEffect(() => {
-        if (!height) return;
-
-        const root = document.documentElement;
-        root.style.setProperty('--header-height', `${height}px`);
-    }, [height]);
 
     useEffect(() => {
         if (!headerRef.current || mouseX === null || mouseY === null) return;
@@ -65,13 +56,21 @@ const Header = forwardRef<
         }
     }, [mouseX, mouseY]);
 
+    const css = `
+        :root {
+            --header-height: ${height};
+        }`;
+
     return (
-        <header ref={headerRef} className={cn('layout__header', className)}>
-            <div className="layout__header__bg" />
-            <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
-                {children}
-            </div>
-        </header>
+        <>
+            <style>{css}</style>
+            <header ref={headerRef} className={cn('layout__header', className)}>
+                <div className="layout__header__bg" />
+                <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+                    {children}
+                </div>
+            </header>
+        </>
     );
 });
 
@@ -92,15 +91,10 @@ Main.displayName = 'Main';
 
 const Footer = forwardRef<
     HTMLElement,
-    { className?: string; children?: ReactNode }
->(({ className, children }, ref) => {
+    { height?: string; className?: string; children?: ReactNode }
+>(({ height = '492px', className, children }, ref) => {
     const footerRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
-    const { height } = useResize({
-        ref: footerRef,
-        axis: 'height',
-        delay: 100,
-    });
 
     const { x: mouseX, y: mouseY } = useMousePosition({
         axis: 'both',
@@ -111,13 +105,6 @@ const Footer = forwardRef<
         ref,
         () => footerRef.current
     );
-
-    useEffect(() => {
-        if (!height) return;
-
-        const root = document.documentElement;
-        root.style.setProperty('--footer-height', `${height}px`);
-    }, [height]);
 
     useEffect(() => {
         if (!footerRef.current || mouseX === null || mouseY === null) return;
@@ -159,16 +146,24 @@ const Footer = forwardRef<
         };
     });
 
+    const css = `
+        :root {
+            --footer-height: ${height};
+        }`;
+
     return (
-        <footer
-            ref={footerRef}
-            className={cn('layout__footer', isInView && 'z-30', className)}
-        >
-            <div className="layout__footer__bg" />
-            <div className="mx-auto mt-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
-                {children}
-            </div>
-        </footer>
+        <>
+            <style>{css}</style>
+            <footer
+                ref={footerRef}
+                className={cn('layout__footer', isInView && 'z-30', className)}
+            >
+                <div className="layout__footer__bg" />
+                <div className="mx-auto mt-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+                    {children}
+                </div>
+            </footer>
+        </>
     );
 });
 

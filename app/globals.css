@@ -7,9 +7,6 @@
     --secondary: #8a8bc9;
 
     --medium: #f2f2f2;
-
-    --header-height: 800px;
-    --footer-height: 492px;
 }
 
 @theme inline {

@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Home() {
     return (
         <Layout.View>
-            <Layout.Header className="bg-gray-400 text-black h-200">
+            <Layout.Header>
                 <Navigation
                     title="© Lukas Wochner"
                     items={[
@@ -350,7 +350,7 @@ export default function Home() {
                     className="absolute -bottom-32 left-0 h-32 w-full bg-wave-reverse"
                 />
             </Layout.Main>
-            <Layout.Footer className="flex flex-col h-123">
+            <Layout.Footer className="flex flex-col">
                 <div className="flex items-center justify-between mt-auto font-sans font-normal text-base text-background">
                     <span>© Lukas Wochner</span>
                     <ul aria-label="Footer navigation" className="flex gap-4">
