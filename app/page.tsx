@@ -1,11 +1,13 @@
-import Intro from '@/components/sections/Intro';
+import BottomNavigation from '@/components/blocks/BottomNavigation';
 import * as Layout from '@/components/blocks/Layout';
 import Navigation from '@/components/blocks/Navigation';
-import TwoUp from '@/components/sections/TwoUp';
-import Skills from '@/components/sections/Skills';
+import Button from '@/components/buttons/Button';
+import Contact from '@/components/sections/Contact';
 import Gallery from '@/components/sections/Gallery';
-import Link from 'next/link';
-import BottomNavigation from '@/components/blocks/BottomNavigation';
+import Intro from '@/components/sections/Intro';
+import Skills from '@/components/sections/Skills';
+import TwoUp from '@/components/sections/TwoUp';
+import * as Icons from '@/components/base/icons';
 
 export default function Home() {
     return (
@@ -352,13 +354,47 @@ export default function Home() {
                 />
             </Layout.Main>
             <Layout.Footer className="flex flex-col">
+                <Contact
+                    isInverted
+                    text='<span class="text-gradient">Interesse?</span> <br />Kontaktiere mich'
+                    aside={{
+                        text: `Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a `,
+                        actions: (
+                            <div className="flex items-center flex-wrap">
+                                <Button href="mailto:job@wochner.me">
+                                    <Icons.Mail />
+                                    <span>E-Mail</span>
+                                </Button>
+                                <Button
+                                    variant="icon"
+                                    href="https://github.com/MrDigii"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-2"
+                                >
+                                    <Icons.Github width={30} height={30} />
+                                </Button>
+                                <Button
+                                    variant="icon"
+                                    href="https://www.linkedin.com/in/lukas-wochner-a60874230/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-1"
+                                >
+                                    <Icons.LinkedIn width={30} height={30} />
+                                </Button>
+                            </div>
+                        ),
+                    }}
+                    className="mt-auto mb-8 md:mb-28"
+                />
                 <BottomNavigation
                     title="© Lukas Wochner"
                     links={[
                         { href: '/impressum', label: 'Impressum' },
                         { href: '/datenschutz', label: 'Datenschutz' },
                     ]}
-                    className="mt-auto"
+                    className="mt-auto py-6 px-4 md:px-5"
                 />
             </Layout.Footer>
         </Layout.View>

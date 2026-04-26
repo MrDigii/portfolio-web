@@ -15,7 +15,6 @@ const Section: FC<{
             id={id}
             data-bg-ident={background}
             className={cn(
-                'bg-background',
                 addSeperation && 'section-spacing',
                 background === 'medium' && 'bg-medium',
                 className

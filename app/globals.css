@@ -56,6 +56,14 @@ body {
     z-index: 20;
     width: 100%;
     height: var(--header-height);
+
+    @media (min-width: 40rem) {
+        height: var(--header-height-sm);
+    }
+
+    @media (min-width: 48rem) {
+        height: var(--header-height-md);
+    }
 }
 
 @utility layout__header__bg {
@@ -142,6 +150,16 @@ body {
     margin-top: var(--header-height);
     margin-bottom: var(--footer-height);
     width: 100%;
+
+    @media (min-width: 40rem) {
+        margin-top: var(--header-height-sm);
+        margin-bottom: var(--footer-height-sm);
+    }
+
+    @media (min-width: 48rem) {
+        margin-top: var(--header-height-md);
+        margin-bottom: var(--footer-height-md);
+    }
 }
 
 @utility layout__footer {
@@ -151,6 +169,14 @@ body {
     z-index: 10;
     width: 100%;
     height: var(--footer-height);
+
+    @media (min-width: 40rem) {
+        height: var(--footer-height-sm);
+    }
+
+    @media (min-width: 48rem) {
+        height: var(--footer-height-md);
+    }
 }
 
 @utility text-gradient {
