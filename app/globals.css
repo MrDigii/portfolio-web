@@ -58,11 +58,11 @@ body {
     height: var(--header-height);
 
     @media (min-width: 40rem) {
-        height: var(--header-height-sm);
+        height: var(--header-height-sm, var(--header-height));
     }
 
     @media (min-width: 48rem) {
-        height: var(--header-height-md);
+        height: var(--header-height-md, var(--header-height));
     }
 }
 
@@ -152,13 +152,13 @@ body {
     width: 100%;
 
     @media (min-width: 40rem) {
-        margin-top: var(--header-height-sm);
-        margin-bottom: var(--footer-height-sm);
+        margin-top: var(--header-height-sm, var(--header-height));
+        margin-bottom: var(--footer-height-sm, var(--footer-height));
     }
 
     @media (min-width: 48rem) {
-        margin-top: var(--header-height-md);
-        margin-bottom: var(--footer-height-md);
+        margin-top: var(--header-height-md, var(--header-height));
+        margin-bottom: var(--footer-height-md, var(--footer-height));
     }
 }
 
@@ -171,11 +171,11 @@ body {
     height: var(--footer-height);
 
     @media (min-width: 40rem) {
-        height: var(--footer-height-sm);
+        height: var(--footer-height-sm, var(--footer-height));
     }
 
     @media (min-width: 48rem) {
-        height: var(--footer-height-md);
+        height: var(--footer-height-md, var(--footer-height));
     }
 }
 

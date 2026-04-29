@@ -19,62 +19,83 @@ const Layout: FC<{ children?: ReactNode }> = ({ children }) => {
 const Header = forwardRef<
     HTMLElement,
     {
-        height?: string;
-        mobileHeight?: string;
+        heights?: {
+            sm?: string;
+            md?: string;
+            default?: string;
+        };
         className?: string;
         children?: ReactNode;
     }
->(({ height = '800px', mobileHeight = '800px', className, children }, ref) => {
-    const headerRef = useRef<HTMLElement>(null);
-    const { x: mouseX, y: mouseY } = useMousePosition({
-        axis: 'both',
-        delay: 5,
-    });
+>(
+    (
+        {
+            heights = {
+                default: '800px',
+                sm: '800px',
+                md: '800px',
+            },
+            className,
+            children,
+        },
+        ref
+    ) => {
+        const headerRef = useRef<HTMLElement>(null);
+        const { x: mouseX, y: mouseY } = useMousePosition({
+            axis: 'both',
+            delay: 5,
+        });
 
-    useImperativeHandle<HTMLElement | null, HTMLElement | null>(
-        ref,
-        () => headerRef.current
-    );
+        useImperativeHandle<HTMLElement | null, HTMLElement | null>(
+            ref,
+            () => headerRef.current
+        );
 
-    useEffect(() => {
-        if (!headerRef.current || mouseX === null || mouseY === null) return;
+        useEffect(() => {
+            if (!headerRef.current || mouseX === null || mouseY === null)
+                return;
 
-        const xPercent =
-            ((mouseX - headerRef.current.offsetLeft) * 100) /
-            headerRef.current.offsetWidth;
-        const yPercent =
-            ((mouseY - headerRef.current.offsetTop) * 100) /
-            headerRef.current.offsetHeight;
+            const xPercent =
+                ((mouseX - headerRef.current.offsetLeft) * 100) /
+                headerRef.current.offsetWidth;
+            const yPercent =
+                ((mouseY - headerRef.current.offsetTop) * 100) /
+                headerRef.current.offsetHeight;
 
-        const root = document.documentElement;
+            const root = document.documentElement;
 
-        if (xPercent <= 100) {
-            root.style.setProperty('--header-gradient-x', `${xPercent}%`);
-        }
+            if (xPercent <= 100) {
+                root.style.setProperty('--header-gradient-x', `${xPercent}%`);
+            }
 
-        if (yPercent <= 100) {
-            root.style.setProperty('--header-gradient-y', `${yPercent}%`);
-        }
-    }, [mouseX, mouseY]);
+            if (yPercent <= 100) {
+                root.style.setProperty('--header-gradient-y', `${yPercent}%`);
+            }
+        }, [mouseX, mouseY]);
 
-    const css = `
+        const css = `
         :root {
-            --header-height: ${height};
-            --header-height-md: ${mobileHeight};
+            ${heights?.default ? `--header-height: ${heights.default};` : ''}
+            ${heights?.sm ? `--header-height-sm: ${heights.sm};` : ''}
+            ${heights?.md ? `--header-height-md: ${heights.md};` : ''}
         }`;
 
-    return (
-        <>
-            <style>{css}</style>
-            <header ref={headerRef} className={cn('layout__header', className)}>
-                <div className="layout__header__bg" />
-                <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
-                    {children}
-                </div>
-            </header>
-        </>
-    );
-});
+        return (
+            <>
+                <style>{css}</style>
+                <header
+                    ref={headerRef}
+                    className={cn('layout__header', className)}
+                >
+                    <div className="layout__header__bg" />
+                    <div className="mx-auto w-full max-w-7xl py-6 px-4 text-white md:px-5">
+                        {children}
+                    </div>
+                </header>
+            </>
+        );
+    }
+);
 
 Header.displayName = 'Header';
 
