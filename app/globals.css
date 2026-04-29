@@ -1,0 +1,324 @@
+@import 'tailwindcss';
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #ec646b;
+    --secondary: #8a8bc9;
+
+    --medium: #f2f2f2;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-medium: var(--medium);
+    --font-sans: var(--font-space-grotesk);
+    --font-mono: var(--font-fira-mono);
+
+    --animate-scroll: scroll var(--infinite-scroll-duration, 40s) linear
+        infinite;
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@property --header-gradient-x {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --header-gradient-y {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@utility layout__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: var(--header-height);
+
+    @media (min-width: 40rem) {
+        height: var(--header-height-sm, var(--header-height));
+    }
+
+    @media (min-width: 48rem) {
+        height: var(--header-height-md, var(--header-height));
+    }
+}
+
+@utility layout__header__bg {
+    position: absolute;
+    display: block;
+    inset: 0;
+    z-index: -1;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background-image: url('/images/bg-gutter.svg');
+        background-repeat: repeat;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background: radial-gradient(
+            circle at var(--header-gradient-x) var(--header-gradient-y),
+            rgba(35, 0, 222, 0.4) 0%,
+            rgba(10, 0, 64, 0.4) 100%
+        );
+
+        transition: --header-gradient-x 0.4s linear,
+            --header-gradient-y 0.4s linear;
+    }
+}
+
+@property --footer-gradient-x {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --footer-gradient-y {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@utility layout__footer__bg {
+    position: absolute;
+    display: block;
+    inset: 0;
+    z-index: -1;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background-image: url('/images/bg-gutter.svg');
+        background-repeat: repeat;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: #080037;
+        background: radial-gradient(
+            circle at var(--footer-gradient-x) var(--footer-gradient-y),
+            rgba(35, 0, 222, 0.4) 0%,
+            rgba(10, 0, 64, 0.4) 100%
+        );
+
+        transition: --footer-gradient-x 0.4s linear,
+            --footer-gradient-y 0.4s linear;
+    }
+}
+
+@utility layout__main {
+    position: relative;
+    z-index: 40;
+    margin-top: var(--header-height);
+    margin-bottom: var(--footer-height);
+    width: 100%;
+
+    @media (min-width: 40rem) {
+        margin-top: var(--header-height-sm, var(--header-height));
+        margin-bottom: var(--footer-height-sm, var(--footer-height));
+    }
+
+    @media (min-width: 48rem) {
+        margin-top: var(--header-height-md, var(--header-height));
+        margin-bottom: var(--footer-height-md, var(--footer-height));
+    }
+}
+
+@utility layout__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--footer-zindex, 10);
+    width: 100%;
+    height: var(--footer-height);
+
+    @media (min-width: 40rem) {
+        height: var(--footer-height-sm, var(--footer-height));
+    }
+
+    @media (min-width: 48rem) {
+        height: var(--footer-height-md, var(--footer-height));
+    }
+}
+
+@utility text-gradient {
+    background: linear-gradient(30deg, #fb04ff 0%, #ff6d70 50%, #ff6d70 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@utility drop-shadow-primary {
+    filter: drop-shadow(4px 4px 0px var(--primary));
+}
+
+@utility bg-wave {
+    background-image: url('/images/wave.svg');
+    background-repeat: repeat-x;
+}
+
+@utility bg-wave-reverse {
+    background-image: url('/images/wave-reverse.svg');
+    background-repeat: repeat-x;
+}
+
+@utility section-spacing {
+    @apply py-20 md:py-34;
+
+    section[data-bg-ident='light'] + &[data-bg-ident='light'] {
+        @apply !pt-0;
+    }
+
+    section[data-bg-ident='medium'] + &[data-bg-ident='medium'] {
+        @apply !pt-0;
+    }
+}
+
+@utility pause-animation {
+    animation-play-state: paused;
+}
+
+@utility external-link {
+    @apply inline-flex items-center gap-1;
+
+    &:after {
+        content: url('/images/external-link.svg');
+        display: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+@utility headline-l {
+    @apply font-sans font-bold text-5xl md:text-6xl;
+}
+
+@utility headline-m {
+    @apply font-sans font-bold text-4xl md:text-5xl;
+}
+
+@utility headline-s {
+    @apply font-sans font-bold text-3xl md:text-4xl;
+}
+
+@layer richText {
+    h1:not([class]),
+    h2:not([class]),
+    h3:not([class]) {
+        @apply m-0;
+        @apply mt-16 md:mt-18;
+        @apply mb-10 md:mb-12;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
+    h1:not([class]) {
+        @apply headline-l;
+    }
+
+    h2:not([class]) {
+        @apply headline-m;
+    }
+
+    h3:not([class]) {
+        @apply headline-s;
+    }
+
+    p:not([class]) {
+        @apply my-6 md:my-8;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
+    /* Links ohne Klasse */
+    a:not([class]) {
+        @apply underline text-inherit transition-colors duration-200;
+        @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-black/80 focus-visible:ring-offset-2;
+
+        &:hover {
+            @apply text-primary;
+        }
+
+        &:active {
+            @apply text-primary transition-colors ease-in-out duration-200 md:transition-none;
+        }
+    }
+
+    ul:not([class]) {
+        list-style: circle;
+        margin-left: 1.25rem;
+        @apply my-6 md:my-8;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+
+        & > * + * {
+            @apply pt-3;
+        }
+    }
+
+    ol:not([class]) {
+        @apply my-6 md:my-8;
+        list-style: decimal;
+        margin-left: 1.25rem;
+
+        & > * + * {
+            @apply pt-3;
+        }
+    }
+}
