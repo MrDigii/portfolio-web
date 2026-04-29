@@ -36,6 +36,7 @@ const Contact: FC<{
                         <aside className="flex flex-col gap-6 font-sans font-normal text-xl md:max-w-120 pt-1">
                             {aside.text && (
                                 <p
+                                    className="m-0"
                                     dangerouslySetInnerHTML={{
                                         __html: aside.text,
                                     }}

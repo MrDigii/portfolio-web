@@ -15,9 +15,18 @@ const firaMono = Fira_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'Lukas Wochner | Portfolio',
+    title: 'Lukas Wochner',
     description:
-        'Portfolio von Lukas Wochner, einem Softwareentwickler mit Schwerpunkt auf Frontend-Entwicklung und Design.',
+        'Erfahrener und vielseitiger Webentwickler mit Fokus auf React.js, Next.js und der Full-Stack-Entwicklung komplexer SaaS-Anwendungen.',
+    openGraph: {
+        title: 'Lukas Wochner',
+        description:
+            'Erfahrener und vielseitiger Webentwickler mit Fokus auf React.js, Next.js und der Full-Stack-Entwicklung komplexer SaaS-Anwendungen.',
+        url: 'https://wochner.me',
+        siteName: 'Portfolio von Lukas Wochner',
+        locale: 'de_DE',
+        type: 'website',
+    },
 };
 
 export default function RootLayout({

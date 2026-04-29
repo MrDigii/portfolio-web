@@ -226,3 +226,99 @@ body {
         right: 0;
     }
 }
+
+@utility headline-l {
+    @apply font-sans font-bold text-5xl md:text-6xl;
+}
+
+@utility headline-m {
+    @apply font-sans font-bold text-4xl md:text-5xl;
+}
+
+@utility headline-s {
+    @apply font-sans font-bold text-3xl md:text-4xl;
+}
+
+@layer richText {
+    h1:not([class]),
+    h2:not([class]),
+    h3:not([class]) {
+        @apply m-0;
+        @apply mt-16 md:mt-18;
+        @apply mb-10 md:mb-12;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
+    h1:not([class]) {
+        @apply headline-l;
+    }
+
+    h2:not([class]) {
+        @apply headline-m;
+    }
+
+    h3:not([class]) {
+        @apply headline-s;
+    }
+
+    p:not([class]) {
+        @apply my-6 md:my-8;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
+    /* Links ohne Klasse */
+    a:not([class]) {
+        @apply underline text-inherit transition-colors duration-200;
+        @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-black/80 focus-visible:ring-offset-2;
+
+        &:hover {
+            @apply text-primary;
+        }
+
+        &:active {
+            @apply text-primary transition-colors ease-in-out duration-200 md:transition-none;
+        }
+    }
+
+    ul:not([class]) {
+        list-style: circle;
+        margin-left: 1.25rem;
+        @apply my-6 md:my-8;
+
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+
+        & > * + * {
+            @apply pt-3;
+        }
+    }
+
+    ol:not([class]) {
+        @apply my-6 md:my-8;
+        list-style: decimal;
+        margin-left: 1.25rem;
+
+        & > * + * {
+            @apply pt-3;
+        }
+    }
+}

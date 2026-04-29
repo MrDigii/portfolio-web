@@ -2,12 +2,12 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { FC, ReactNode } from 'react';
 
-const headingVariants = cva('font-sans font-bold text-foreground', {
+const headingVariants = cva('text-foreground', {
     variants: {
         size: {
-            'heading-1': 'text-5xl md:text-6xl',
-            'heading-2': 'text-4xl md:text-5xl',
-            'heading-3': 'text-3xl md:text-4xl',
+            'heading-1': 'headline-l',
+            'heading-2': 'headline-m',
+            'heading-3': 'headline-s',
         },
     },
     defaultVariants: {

@@ -8,6 +8,13 @@ import Intro from '@/components/sections/Intro';
 import Skills from '@/components/sections/Skills';
 import TwoUp from '@/components/sections/TwoUp';
 import * as Icons from '@/components/base/icons';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Home | Lukas Wochner',
+    description:
+        'Erfahrener und vielseitiger Webentwickler mit Fokus auf React.js, Next.js und der Full-Stack-Entwicklung komplexer SaaS-Anwendungen.',
+};
 
 export default function Home() {
     return (
@@ -46,15 +53,15 @@ export default function Home() {
                     items={[
                         {
                             title: 'Webentwicklung',
-                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                            text: 'Ob Onepager, Unternehmensseite oder mehrsprachige Stadt- / Tourismuswebsite, als erfahrener Webentwickler habe ich immer die passenden Lösungen für dich parat.',
                         },
                         {
                             title: 'SaaS Entwicklung',
-                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                            text: 'Der Umstieg von Anwendungen in die Cloud bringt viele Chancen, aber auch technische Herausforderungen mit sich. Als langjähriger Entwickler in mehreren interaktiven und kollaborativen SaaS-Anwendungen weiß ich, worauf es ankommt.',
                         },
                         {
                             title: 'Kommunikation',
-                            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                            text: 'Gute Produkte lassen sich nur mit einem gut funktionierenden Team realisieren.  Agile Prozesse und Projektplanung sind genauso wichtig wie Selbstverantwortung und Kommunikation auf Augenhöhe.',
                         },
                     ]}
                     tools={[
@@ -358,7 +365,7 @@ export default function Home() {
                     isInverted
                     text='<span class="text-gradient">Interesse?</span> <br />Kontaktiere mich'
                     aside={{
-                        text: `Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a `,
+                        text: `Habe ich dein Interesse geweckt? Dann zögere nicht, mich zu kontaktieren. Ich freue mich darauf, von dir zu hören und gemeinsam spannende Projekte anzugehen!`,
                         actions: (
                             <div className="flex items-center flex-wrap">
                                 <Button href="mailto:job@wochner.me">

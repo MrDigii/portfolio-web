@@ -6,6 +6,13 @@ import Heading from '@/components/typography/Heading';
 import * as Icons from '@/components/base/icons';
 import Contact from '@/components/sections/Contact';
 import Button from '@/components/buttons/Button';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Impressum | Lukas Wochner',
+    description:
+        'Erfahrener und vielseitiger Webentwickler mit Fokus auf React.js, Next.js und der Full-Stack-Entwicklung komplexer SaaS-Anwendungen.',
+};
 
 export default function Impressum() {
     return (
@@ -20,63 +27,41 @@ export default function Impressum() {
                     ]}
                 />
                 <div className="mx-auto w-full max-w-7xl py-6 text-center mt-30">
-                    <Heading size="heading-1" tag="h1" className="text-white">
+                    <Heading
+                        size="heading-1"
+                        tag="h1"
+                        className="text-white break-all"
+                    >
                         Impressum
                     </Heading>
                 </div>
             </Layout.Header>
-            <Layout.Main className="relative bg-white">
+            <Layout.Main className="relative bg-white min-h-[600px]">
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
-                <Wrapper spacing="big" className="font-sans text-lg">
-                    <section>
-                        <h2>Angaben gemäß § 5 DDG</h2>
+                <Wrapper spacing="big" className="font-sans text-xl">
+                    <div className="max-w-200">
                         <p>
-                            [Vorname Nachname]
+                            Lukas Wochner
                             <br />
-                            [Straße Hausnummer]
+                            Bahnhofstraße 38
                             <br />
-                            [PLZ Ort]
+                            78532 Tuttlingen
+                            <br />
+                            <a href="mailto:job@wochner.me">job@wochner.me</a>
                         </p>
-                    </section>
 
-                    <section>
-                        <h2>Kontakt</h2>
                         <p>
-                            Telefon: [Deine Telefonnummer]
+                            <strong>Redaktionell verantwortlich</strong>
                             <br />
-                            E-Mail:{' '}
-                            <a href="mailto:[Deine E-Mail]">
-                                [Deine E-Mail-Adresse]
-                            </a>
+                            <span>Lukas Wochner</span>
                         </p>
-                    </section>
 
-                    <section>
-                        <h2>Umsatzsteuer-ID</h2>
+                        <h3>EU-Streitschlichtung</h3>
                         <p>
-                            Umsatzsteuer-Identifikationsnummer gemäß § 27 a
-                            Umsatzsteuergesetz:
-                            <br />
-                            [Deine USt-IdNr., falls vorhanden]
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2>Redaktionell verantwortlich</h2>
-                        <p>
-                            [Vorname Nachname]
-                            <br />
-                            [Straße Hausnummer]
-                            <br />
-                            [PLZ Ort]
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2>EU-Streitschlichtung</h2>
-                        <p>
-                            Die Europäische Kommission stellt eine Plattform zur
-                            Online-Streitbeilegung (OS) bereit:
+                            <span>
+                                Die Europäische Kommission stellt eine Plattform
+                                zur Online-Streitbeilegung (OS) bereit:
+                            </span>{' '}
                             <a
                                 href="https://ec.europa.eu/consumers/odr/"
                                 target="_blank"
@@ -85,20 +70,25 @@ export default function Impressum() {
                                 https://ec.europa.eu/consumers/odr/
                             </a>
                             .<br />
-                            Unsere E-Mail-Adresse finden Sie oben im Impressum.
+                            <span>
+                                Unsere E-Mail-Adresse finden Sie oben im
+                                Impressum.
+                            </span>
                         </p>
-                    </section>
 
-                    <section>
-                        <h2>
-                            Verbraucher­streit­beilegung/Universal­schlichtungs­stelle
-                        </h2>
+                        <h3>
+                            {' '}
+                            Verbraucher­streit­beilegung /
+                            Universal­schlichtungs­stelle
+                        </h3>
                         <p>
-                            Wir sind nicht bereit oder verpflichtet, an
-                            Streitbeilegungsverfahren vor einer
-                            Verbraucherschlichtungsstelle teilzunehmen.
+                            <span>
+                                Wir sind nicht bereit oder verpflichtet, an
+                                Streitbeilegungsverfahren vor einer
+                                Verbraucherschlichtungsstelle teilzunehmen.
+                            </span>
                         </p>
-                    </section>
+                    </div>
                 </Wrapper>
 
                 <div
@@ -111,7 +101,7 @@ export default function Impressum() {
                     isInverted
                     text='<span class="text-gradient">Interesse?</span> <br />Kontaktiere mich'
                     aside={{
-                        text: `Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a `,
+                        text: `Habe ich dein Interesse geweckt? Dann zögere nicht, mich zu kontaktieren. Ich freue mich darauf, von dir zu hören und gemeinsam spannende Projekte anzugehen!`,
                         actions: (
                             <div className="flex items-center flex-wrap">
                                 <Button href="mailto:job@wochner.me">
