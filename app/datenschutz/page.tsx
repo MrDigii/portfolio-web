@@ -38,10 +38,10 @@ export default function Datenschutz() {
             </Layout.Header>
             <Layout.Main className="relative bg-white">
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
-                <Wrapper spacing="big" className="font-sans text-xl">
+                <Wrapper className="font-sans text-xl">
                     <div className="max-w-200">
+                        <h3>Name und Kontaktdaten des Verantwortlichen</h3>
                         <p>
-                            <h3>Name und Kontaktdaten des Verantwortlichen</h3>
                             <span>
                                 Verantwortlich für die Datenverarbeitung auf
                                 dieser Website ist:
@@ -109,7 +109,13 @@ export default function Datenschutz() {
                                 in dem unser Unternehmen seinen Sitz hat.
                             </li>
                         </ul>
-                        <h3>Datenverarbeitungsaktivitäten</h3>
+                        <h3>
+                            Daten
+                            <wbr />
+                            verarbeitungs
+                            <wbr />
+                            aktivitäten
+                        </h3>
                         <p>
                             <br />
                             <strong>

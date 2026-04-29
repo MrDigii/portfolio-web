@@ -38,7 +38,7 @@ export default function Impressum() {
             </Layout.Header>
             <Layout.Main className="relative bg-white min-h-[600px]">
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
-                <Wrapper spacing="big" className="font-sans text-xl">
+                <Wrapper className="font-sans text-xl">
                     <div className="max-w-200">
                         <p>
                             Lukas Wochner
