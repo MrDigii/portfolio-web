@@ -166,7 +166,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    z-index: var(--footer-zindex, 10);
     width: 100%;
     height: var(--footer-height);
 

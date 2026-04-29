@@ -103,9 +103,40 @@ const Main = forwardRef<
     HTMLElement,
     { className?: string; children?: ReactNode }
 >(({ className, children }, ref) => {
+    const bottomRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!bottomRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                const root = document.documentElement;
+
+                if (entry.isIntersecting) {
+                    root.style.setProperty('--footer-zindex', `30`);
+                } else {
+                    const root = document.documentElement;
+                    root.style.setProperty('--footer-zindex', `10`);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1, // Triggers when 10% of the footer is visible. Adjust as needed.
+            }
+        );
+
+        observer.observe(bottomRef.current);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
     return (
         <main ref={ref} className={cn('layout__main', className)}>
             {children}
+            <div ref={bottomRef} />
         </main>
     );
 });
@@ -137,7 +168,6 @@ const Footer = forwardRef<
         ref
     ) => {
         const footerRef = useRef<HTMLElement>(null);
-        const [isInView, setIsInView] = useState(false);
 
         const { x: mouseX, y: mouseY } = useMousePosition({
             axis: 'both',
@@ -171,25 +201,6 @@ const Footer = forwardRef<
             }
         }, [mouseX, mouseY]);
 
-        useEffect(() => {
-            const updateInViewCalc = () => {
-                if (!footerRef.current) return;
-
-                const footerRect = footerRef.current.getBoundingClientRect();
-                const maxScrollY =
-                    document.documentElement.scrollHeight - window.innerHeight;
-
-                setIsInView(window.scrollY >= maxScrollY - footerRect.height);
-            };
-
-            updateInViewCalc();
-            document.addEventListener('scroll', updateInViewCalc);
-
-            return () => {
-                document.removeEventListener('scroll', updateInViewCalc);
-            };
-        });
-
         const css = `
         :root {
             ${heights?.default ? `--footer-height: ${heights.default};` : ''}
@@ -202,11 +213,7 @@ const Footer = forwardRef<
                 <style>{css}</style>
                 <footer
                     ref={footerRef}
-                    className={cn(
-                        'layout__footer',
-                        isInView && 'z-30',
-                        className
-                    )}
+                    className={cn('layout__footer', className)}
                 >
                     <div className="layout__footer__bg" />
                     <div className="mx-auto mt-auto w-full max-w-7xl text-white">
