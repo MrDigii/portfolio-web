@@ -43,8 +43,8 @@ export default function Home() {
                 <div className="absolute -top-32 left-0 h-32 w-full bg-wave" />
                 <TwoUp
                     id="about"
-                    text="Helping brands to stand out in the digital era. Togethcer we will set the new status quo. No nonsense, always on the currting edge."
-                    aside="The combination of my passion for design, code & interaction positions me in a unique place in the web design world."
+                    text="Ich entwickle digitale Erlebnisse, die nicht nur visuell, sondern auch technisch überzeugen. Immer am Zahn der Zeit."
+                    aside="Als kreativer Medieninformatiker und erfahrener Webentwickler schlage ich die Brücke zwischen Informatik und Design. "
                     className="pt-0 md:pt-10"
                 />
                 <Skills
