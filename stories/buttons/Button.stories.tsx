@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Button from '@/components/buttons/Button';
+import Button from '@/components/Button';
 import * as Icons from '@/components/base/icons';
 
 const meta = {
