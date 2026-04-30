@@ -1,7 +1,7 @@
 import BottomNavigation from '@/components/blocks/BottomNavigation';
 import * as Layout from '@/components/blocks/Layout';
 import Navigation from '@/components/blocks/Navigation';
-import Button from '@/components/buttons/Button';
+import Button from '@/components/Button';
 import Contact from '@/components/sections/Contact';
 import Gallery from '@/components/sections/Gallery';
 import Intro from '@/components/sections/Intro';

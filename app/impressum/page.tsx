@@ -5,7 +5,7 @@ import Navigation from '@/components/blocks/Navigation';
 import Heading from '@/components/typography/Heading';
 import * as Icons from '@/components/base/icons';
 import Contact from '@/components/sections/Contact';
-import Button from '@/components/buttons/Button';
+import Button from '@/components/Button';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
