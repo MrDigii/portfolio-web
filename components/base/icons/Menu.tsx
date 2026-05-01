@@ -12,6 +12,7 @@ const Menu: FC<{
         width={width}
         height={height}
         viewBox="0 0 50 50"
+        aria-hidden={true}
         className={className}
     >
         <path

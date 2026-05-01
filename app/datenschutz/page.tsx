@@ -171,30 +171,47 @@ export default function Datenschutz() {
                     aside={{
                         text: `Habe ich dein Interesse geweckt? Dann zögere nicht, mich zu kontaktieren. Ich freue mich darauf, von dir zu hören und gemeinsam spannende Projekte anzugehen!`,
                         actions: (
-                            <div className="flex items-center flex-wrap">
-                                <Button href="mailto:job@wochner.me">
-                                    <Icons.Mail />
-                                    <span>E-Mail</span>
-                                </Button>
-                                <Button
-                                    variant="icon"
-                                    href="https://github.com/MrDigii"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="ml-2"
-                                >
-                                    <Icons.Github width={30} height={30} />
-                                </Button>
-                                <Button
-                                    variant="icon"
-                                    href="https://www.linkedin.com/in/lukas-wochner-a60874230/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="ml-1"
-                                >
-                                    <Icons.LinkedIn width={30} height={30} />
-                                </Button>
-                            </div>
+                            <ul
+                                aria-label="Kontaktmöglichkeiten"
+                                className="flex items-center flex-wrap"
+                            >
+                                <li>
+                                    <Button
+                                        aria-label="E-Mail"
+                                        href="mailto:job@wochner.me"
+                                    >
+                                        <Icons.Mail />
+                                        <span>E-Mail</span>
+                                    </Button>
+                                </li>
+                                <li>
+                                    <Button
+                                        variant="icon"
+                                        aria-label="Github Profil"
+                                        href="https://github.com/MrDigii"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="ml-2"
+                                    >
+                                        <Icons.Github width={30} height={30} />
+                                    </Button>
+                                </li>
+                                <li>
+                                    <Button
+                                        variant="icon"
+                                        aria-label="LinkedIn Profil"
+                                        href="https://www.linkedin.com/in/lukas-wochner-a60874230/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="ml-1"
+                                    >
+                                        <Icons.LinkedIn
+                                            width={30}
+                                            height={30}
+                                        />
+                                    </Button>
+                                </li>
+                            </ul>
                         ),
                     }}
                     className="mt-auto mb-8 md:mb-28"

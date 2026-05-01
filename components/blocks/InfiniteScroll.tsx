@@ -104,7 +104,7 @@ const InfiniteScroll: FC<{
         >
             <ul
                 ref={listRef}
-                aria-label="Tools list"
+                aria-label="Tools Liste"
                 className="flex items-center gap-6 animate-scroll px-3 group-hover/track:pause-animation"
             >
                 {items.map((item, i) => (

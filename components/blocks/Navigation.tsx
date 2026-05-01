@@ -3,7 +3,7 @@
 import { isValidArray } from '@/lib/arrays';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { FC, SyntheticEvent, useEffect, useRef, useState } from 'react';
+import { FC, SyntheticEvent, useEffect, useId, useRef, useState } from 'react';
 import * as Icons from '../base/icons';
 
 export interface NavItem {
@@ -17,6 +17,7 @@ const Navigation: FC<{
     items?: NavItem[];
     className?: string;
 }> = ({ title, items, className }) => {
+    const flyoutId = useId();
     const [isOpen, setIsOpen] = useState(false);
     const flyoutRef = useRef<HTMLUListElement>(null);
 
@@ -71,8 +72,9 @@ const Navigation: FC<{
             )}
             {isValidArray(items, false) && (
                 <ul
+                    id={flyoutId}
                     ref={flyoutRef}
-                    aria-label="main navigation"
+                    aria-label="Hauptnavigation"
                     className={cn(
                         'absolute top-12.5 right-0 flex flex-col gap-4 items-center ml-auto bg-secondary/30 px-0 py-3 transition-opacity',
                         'rounded-lg backdrop-blur-sm z-10 w-50 border border-secondary/50',
@@ -104,7 +106,10 @@ const Navigation: FC<{
                 </ul>
             )}
             <button
-                aria-label="Toggle navigation menu"
+                aria-label="Toggle Hauptnavigation"
+                aria-expanded={isOpen}
+                aria-haspopup="true"
+                aria-controls={flyoutId}
                 onClick={() => setIsOpen((prev) => !prev)}
                 className="ml-auto cursor-pointer md:hidden"
             >

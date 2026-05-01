@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
 const buttonVariants = cva(
-    'inline-flex items-center gap-2 border-none font-mono rounded-lg pointer cursor-pointer transition-[filter] hover:brightness-110',
+    'inline-flex items-center gap-2 border-none font-mono font-bold rounded-lg pointer cursor-pointer transition-[filter] hover:brightness-110',
     {
         variants: {
             variant: {
