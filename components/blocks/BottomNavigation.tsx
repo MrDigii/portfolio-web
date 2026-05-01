@@ -17,7 +17,7 @@ const BottomNavigation: FC<{
         >
             {title && <span>{title}</span>}
             {isValidArray(links, false) && (
-                <ul aria-label="Footer navigation" className="flex gap-4">
+                <ul aria-label="Fußzeilen Navigation" className="flex gap-4">
                     {links?.map((link, i) => (
                         <li key={i}>
                             <Link
