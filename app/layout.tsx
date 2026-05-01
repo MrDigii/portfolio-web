@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 const firaMono = Fira_Mono({
     variable: '--font-fira-mono',
     subsets: ['latin'],
-    weight: ['400'],
+    weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
